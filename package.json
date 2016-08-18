@@ -1,0 +1,24 @@
+{
+  "name": "stuff-server",
+  "version": "1.0.0",
+  "description": "Server for my Stuff webapp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniel-Carroll/Stuff-Server.git"
+  },
+  "author": "Cornbread",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniel-Carroll/Stuff-Server/issues"
+  },
+  "homepage": "https://github.com/Daniel-Carroll/Stuff-Server#readme",
+  "dependencies": {
+        "express": "~4.0.0",
+        "mongoose": "~4.4.19",
+        "body-parser": "~1.0.1"
+    }
+}
