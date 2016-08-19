@@ -1,28 +1,8 @@
-//server.js
-
-//BASE SETUP
 var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://cornbread:swagswag@ds147965.mlab.com:47965/stuff/collections/Collection');
-
-var Collection = require('./app/models/collection');
-
-//ROUTES FOR OUR API
 var router = express.Router();
 
-//Middleware to use for all requests
-router.use(function(req, res, next){
-    console.log('middleware...')
-    next(); //make sure next routes are ran
-})
-
-router.route('/')
-    .get( function(req, res){
-    res.json({message: 'Yeah nigga we made it!'});
-    });
+var Collection = require('./app/models/collection');
 
 router.route('/collections')
     .post(function(req, res){
@@ -86,20 +66,5 @@ router.route('/collections/:collection_id')
              res.json({message:'Collection deleted!'})
          })
      })
-   
-    
-
-
-//configure app to use body-parser
-//Will allow to get data from post
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-var port = process.env.PORT || 8080;        // set our port
-
-app.use('/api', router);
-
-//start server
-app.listen(port);
-console.log('Buffet City is evil: ' + port);
-
+     
+module.exports = router;
