@@ -10,11 +10,10 @@ var ItemSchema = new Schema({
     qty: Number,
     category: String,
     location: String,
-    dateObtained: { type: Date, default: Date.now },
     origin: String,
-    collection: {
+    collectionName: {
         name: String,
-        _collectionId: Schema.Type.ObjectId
+        _collectionId: Number
     }
 });
 
