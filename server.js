@@ -21,7 +21,7 @@ app.listen(port);
 console.log('Buffet City is evil: ' + port);
 
 //ROUTES FOR OUR API
-app.use('/api', router);
+app.use('/stuff_api/api', router);
 
 // Error Handling
 app.use(function(err, req, res, next) {
