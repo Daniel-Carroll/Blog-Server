@@ -14,7 +14,7 @@ var router = require('./app/routes/index');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 8080;        // set our port
+var port = process.env.PORT || 5000;        // set our port
 
 //start server
 app.listen(port);
