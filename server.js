@@ -13,10 +13,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-//configure app to use body-parser
-//Will allow to get data from post
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 
 var port = process.env.PORT || 5000;        // set our port
 
