@@ -18,14 +18,14 @@ router.use(function(req, res, next){
 
 router.route('/')
     .options(function(req, res){
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-        res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Cache-Control");
         res.end();
     })
 
 router.route('/')
     .post(function(req, res){
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Content-Type,Cache-Control");
        console.log("posting blog post...")
        var post = new Post();
        //save request body 
