@@ -9,12 +9,17 @@ var Post = require('./../models/post');
 //Middleware to use for all requests
 router.use(function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control");
     console.log('opening connection to /stuff/collections/Collection...')
     mongoose.connect('mongodb://cornbread:poop@ds139198.mlab.com:39198/blog')
     next(); //make sure next routes are ran
 })
+
+router.route('/')
+    .options(function(req, res){
+        res.end()
+    })
 
 router.route('/')
     .post(function(req, res){
@@ -33,9 +38,9 @@ router.route('/')
                 res.send(err);                
                 
            res.json({message: 'Blog Post created!'})
-           res.end()
            mongoose.disconnect()
        });
+       res.end()
     });
     
 router.route('/')
@@ -48,6 +53,7 @@ router.route('/')
             res.json(posts)
             mongoose.disconnect()
         });
+        res.end()
     });
 
 router.route('/:post_id')
