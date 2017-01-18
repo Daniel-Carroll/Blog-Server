@@ -18,7 +18,7 @@ router.use(function(req, res, next){
 
 router.route('/')
     .options(function(req, res){
-        res.end()
+        
     })
 
 router.route('/')
@@ -40,7 +40,7 @@ router.route('/')
            res.json({message: 'Blog Post created!'})
            mongoose.disconnect()
        });
-       res.end()
+
     });
     
 router.route('/')
@@ -53,7 +53,7 @@ router.route('/')
             res.json(posts)
             mongoose.disconnect()
         });
-        res.end()
+      
     });
 
 router.route('/:post_id')
