@@ -18,7 +18,7 @@ router.use(function(req, res, next){
 
 router.route('/')
     .options(function(req, res){
-        
+        res.end();
     })
 
 router.route('/')
