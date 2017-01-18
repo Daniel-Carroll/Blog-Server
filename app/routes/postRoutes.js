@@ -33,6 +33,7 @@ router.route('/')
                 res.send(err);                
                 
            res.json({message: 'Blog Post created!'})
+           res.end()
            mongoose.disconnect()
        });
     });
