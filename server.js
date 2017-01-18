@@ -27,12 +27,6 @@ console.log('Buffet City is evil: ' + port);
 //ROUTES FOR OUR API
 app.use('/blog_api/api', router);
 
-app.use(function(req,res,next){
-   res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
-    res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control"); 
-});
-
 // Error Handling
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
