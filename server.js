@@ -7,6 +7,9 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var router = require('./app/routes/index');
 
+var jwt    = require('jsonwebtoken');
+var config = require('./config');
+
 
 var allowCrossDomain = function(req, res, next) {
     if ('OPTIONS' == req.method) {
