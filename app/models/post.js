@@ -9,7 +9,11 @@ var PostSchema = new Schema({
     content: String,
     date: Date,
     category: String,
-    user: String
+    user: String,
+    comments: [{
+       username: String,
+       comment: String  
+    }]
 });
 
 module.exports = mongoose.model('Post', PostSchema);
