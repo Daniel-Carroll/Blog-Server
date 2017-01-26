@@ -28,6 +28,7 @@ router.route('/')
        post.date = req.body.date;
        post.category = req.body.category;
        post.user = req.body.user;
+       post.comments = req.body.comments;
        
        post.save(function(err){
            if(err)
@@ -70,7 +71,8 @@ router.route('/:post_id')
             post.content = req.body.content;
             post.date = req.body.date;
             post.category = req.body.category;
-            post.user = req.body.user;           
+            post.user = req.body.user;    
+            post.comments = req.body.comments;       
             
             post.save(function(err){
                 if(err)
