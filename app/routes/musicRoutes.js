@@ -72,6 +72,10 @@ router.route('/:post_id')
                 res.send(err);
             post.name = req.body.name;
             post.description = req.body.description;
+            post.album = req.body.album;
+            post.artist = req.body.artist;
+            post.genre = req.body.genre;
+            post.rating = req.body.rating;
             post.content = req.body.content;
             post.date = req.body.date;
             post.category = req.body.category;
