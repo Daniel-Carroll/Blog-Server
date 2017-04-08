@@ -3,12 +3,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var MusicPostSchema = new Schema({
+var ReviewSchema = new Schema({
     name: String,
-    description: String,
-    album: String,
-    artist: String,
-    genre: String,
     rating: Number,
     content: String,
     date: Date,
@@ -20,4 +16,4 @@ var MusicPostSchema = new Schema({
     }]
 });
 
-module.exports = mongoose.model('MusicPost', MusicPostSchema);
+module.exports = mongoose.model('Review', ReviewSchema);

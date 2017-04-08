@@ -4,6 +4,6 @@ var routeManager = express.Router();
     routeManager.use('/posts', require('./postRoutes'))
     routeManager.use('/items', require('./itemRoutes'))
     routeManager.use('/users', require('./userRoutes'))
-    routeManager.use('/music', require('./musicRoutes'))
+    routeManager.use('/review', require('./reviewRoutes'))
     
     module.exports = routeManager;

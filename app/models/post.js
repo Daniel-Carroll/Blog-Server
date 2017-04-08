@@ -6,6 +6,10 @@ var Schema = mongoose.Schema;
 var PostSchema = new Schema({
     name: String,
     description: String,
+    album: String,
+    artist: String,
+    genre: String,
+    rating: Number,
     content: String,
     date: Date,
     category: String,

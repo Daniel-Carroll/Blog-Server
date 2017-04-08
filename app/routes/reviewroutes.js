@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 
-var MusicPost = require('./../models/music-post');
+var Review = require('./../models/review');
 
 //Middleware to use for all requests
 router.use(function(req, res, next){
@@ -12,21 +12,17 @@ router.use(function(req, res, next){
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     console.log('opening connection to /blog/collections/posts...')
-    mongoose.connect('mongodb://cornbread:poop@ds139198.mlab.com:39198/blog/collections/music')
+    mongoose.connect('mongodb://cornbread:poop@ds139198.mlab.com:39198/blog/collections/reviews')
     next(); //make sure next routes are ran
 })
 
 router.route('/')
     .post(function(req, res){
       
-       console.log("posting Music Post...")
-       var post = new MusicPost();
+       console.log("posting Review...")
+       var post = new Review();
        //save request body 
        post.name = req.body.name;
-       post.description = req.body.description;
-       post.album = req.body.album;
-       post.artist = req.body.artist;
-       post.genre = req.body.genre;
        post.rating = req.body.rating;
        post.content = req.body.content;
        post.date = req.body.date;
@@ -38,7 +34,7 @@ router.route('/')
            if(err)
                 res.send(err);                
                 
-           res.json({message: 'Music Post created!'})
+           res.json({message: 'Review created!'})
            mongoose.disconnect()
        });
     });
@@ -46,7 +42,7 @@ router.route('/')
 router.route('/')
      .get(function(req, res){
         console.log("getting...")
-        MusicPost.find(function(err, posts){
+        Review.find(function(err, posts){
            if(err)
                 res.send(err);
                 
@@ -58,7 +54,7 @@ router.route('/')
 
 router.route('/:post_id')
     .get(function(req,res){
-        MusicPost.findById(req.params.post_id, function(err, post){
+        Review.findById(req.params.post_id, function(err, post){
             if(err)
                 res.send(err);
             res.json(post)
@@ -67,14 +63,10 @@ router.route('/:post_id')
     })
     
     .put(function(req,res){
-        MusicPost.findById(req.params.post_id, function(err, post){
+        Review.findById(req.params.post_id, function(err, post){
             if(err)
                 res.send(err);
             post.name = req.body.name;
-            post.description = req.body.description;
-            post.album = req.body.album;
-            post.artist = req.body.artist;
-            post.genre = req.body.genre;
             post.rating = req.body.rating;
             post.content = req.body.content;
             post.date = req.body.date;
@@ -85,19 +77,19 @@ router.route('/:post_id')
             post.save(function(err){
                 if(err)
                     res.send(err);
-                res.json({message: 'Music Post updated!'})
+                res.json({message: 'Review updated!'})
                 mongoose.disconnect()
             })
         })
      })
      
      .delete(function(req,res){
-         MusicPost.remove({
+         Review.remove({
              _id: req.params.post_id
          }, function(err, post){
              if(err)
                 res.send(err);
-             res.json({message:'Music Post deleted!'})
+             res.json({message:'Review deleted!'})
              mongoose.disconnect()
          })
      })
